@@ -16,3 +16,8 @@ The output includes:
 6. Fee APR (i.e. 1 Yr Fee / Liquidity).
 
 Feedback is welcomed.
+
+## How to run the scraper?
+```
+python driver.py
+```
