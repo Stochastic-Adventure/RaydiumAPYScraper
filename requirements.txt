@@ -1,0 +1,4 @@
+construct==2.10.66
+aiohttp==3.7.4
+APScheduler==3.7.0
+aiolimiter==1.0.0b1

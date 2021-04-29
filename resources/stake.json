@@ -1,0 +1,16 @@
+{
+    "name": "RAY",
+    "reward": "RAY",
+    "isStake": true,
+
+    "fusion": false,
+    "legacy": false,
+    "dual": false,
+    "version": 2,
+    "programId": "STAKE_PROGRAM_ID",
+
+    "poolId": "4EwbZo8BZXP5313z5A2H11MRBP15M5n6YxfmkjXESKAW",
+    "poolAuthority": "4qD717qKoj3Sm8YfHMSR7tSKjWn5An817nArA6nGdcUR",
+    "poolLpTokenAccount": "8tnpAECxAT9nHBqR1Ba494Ar5dQMPGhL31MmPJz1zZvY",
+    "poolRewardTokenAccount": "BihEG2r7hYax6EherbRmuLLrySBuSXx4PYGd9gAsktKY"
+}

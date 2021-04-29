@@ -1,0 +1,188 @@
+{
+  "RAY-USDC-V3": {
+    "symbol": "RAY-USDC",
+    "name": "RAY-USDC LP",
+    "mintAddress": "BZFGfXMrjG2sS7QT2eiCDEevPFnkYYF7kzJpWfYxPbcx"
+  },
+  "RAY-SRM-V3": {
+    "symbol": "RAY-SRM",
+    "name": "RAY-SRM LP",
+    "mintAddress": "DSX5E21RE9FB9hM8Nh8xcXQfPK6SzRaJiywemHBSsfup"
+  },
+  "RAY-SOL-V3": {
+    "symbol": "RAY-SOL",
+    "name": "RAY-SOL LP",
+    "mintAddress": "F5PPQHGcznZ2FxD9JaxJMXaf7XkaFFJ6zzTBcW8osQjw"
+  },
+  "RAY-ETH-V3": {
+    "symbol": "RAY-ETH",
+    "name": "RAY-ETH LP",
+    "mintAddress": "8Q6MKy5Yxb9vG1mWzppMtMb2nrhNuCRNUkJTeiE3fuwD"
+  },
+  "FIDA-RAY-V4": {
+    "symbol": "FIDA-RAY",
+    "name": "FIDA-RAY LP",
+    "mintAddress": "DsBuznXRTmzvEdb36Dx3aVLVo1XmH7r1PRZUFugLPTFv"
+  },
+  "OXY-RAY-V4": {
+    "symbol": "OXY-RAY",
+    "name": "OXY-RAY LP",
+    "mintAddress": "FwaX9W7iThTZH5MFeasxdLpxTVxRcM7ZHieTCnYog8Yb"
+  },
+  "MAPS-RAY-V4": {
+    "symbol": "MAPS-RAY",
+    "name": "MAPS-RAY LP",
+    "mintAddress": "CcKK8srfVdTSsFGV3VLBb2YDbzF4T4NM2C3UEjC39RLP"
+  },
+  "KIN-RAY-V4": {
+    "symbol": "KIN-RAY",
+    "name": "KIN-RAY LP",
+    "mintAddress": "CHT8sft3h3gpLYbCcZ9o27mT5s3Z6VifBVbUiDvprHPW",
+    "decimals": 6
+  },
+  "RAY-USDT-V4": {
+    "symbol": "RAY-USDT",
+    "name": "RAY-USDT LP",
+    "mintAddress": "C3sT1R3nsw4AVdepvLTLKr5Gvszr7jufyBWUCvy4TUvT"
+  },
+  "SOL-USDC-V4": {
+    "symbol": "SOL-USDC",
+    "name": "SOL-USDC LP",
+    "mintAddress": "8HoQnePLqPj4M7PUDzfw8e3Ymdwgc7NLGnaTUapubyvu"
+  },
+  "YFI-USDC-V4": {
+    "symbol": "YFI-USDC",
+    "name": "YFI-USDC LP",
+    "mintAddress": "865j7iMmRRycSYUXzJ33ZcvLiX9JHvaLidasCyUyKaRE"
+  },
+  "SRM-USDC-V4": {
+    "symbol": "SRM-USDC",
+    "name": "SRM-USDC LP",
+    "mintAddress": "9XnZd82j34KxNLgQfz29jGbYdxsYznTWRpvZE3SRE7JG"
+  },
+  "FTT-USDC-V4": {
+    "symbol": "FTT-USDC",
+    "name": "FTT-USDC LP",
+    "mintAddress": "75dCoKfUHLUuZ4qEh46ovsxfgWhB4icc3SintzWRedT9"
+  },
+  "BTC-USDC-V4": {
+    "symbol": "BTC-USDC",
+    "name": "BTC-USDC LP",
+    "mintAddress": "2hMdRdVWZqetQsaHG8kQjdZinEMBz75vsoWTCob1ijXu"
+  },
+  "SUSHI-USDC-V4": {
+    "symbol": "SUSHI-USDC",
+    "name": "SUSHI-USDC LP",
+    "mintAddress": "2QVjeR9d2PbSf8em8NE8zWd8RYHjFtucDUdDgdbDD2h2"
+  },
+  "TOMO-USDC-V4": {
+    "symbol": "TOMO-USDC",
+    "name": "TOMO-USDC LP",
+    "mintAddress": "CHyUpQFeW456zcr5XEh4RZiibH8Dzocs6Wbgz9aWpXnQ"
+  },
+  "LINK-USDC-V4": {
+    "symbol": "LINK-USDC",
+    "name": "LINK-USDC LP",
+    "mintAddress": "BqjoYjqKrXtfBKXeaWeAT5sYCy7wsAYf3XjgDWsHSBRs"
+  },
+  "ETH-USDC-V4": {
+    "symbol": "ETH-USDC",
+    "name": "ETH-USDC LP",
+    "mintAddress": "13PoKid6cZop4sj2GfoBeujnGfthUbTERdE5tpLCDLEY"
+  },
+  "COPE-USDC-V4": {
+    "symbol": "COPE-USDC",
+    "name": "COPE-USDC LP",
+    "mintAddress": "2Vyyeuyd15Gp8aH6uKE72c4hxc8TVSLibxDP9vzspQWG"
+  },
+  "SOL-USDT-V4": {
+    "symbol": "SOL-USDT",
+    "name": "SOL-USDT LP",
+    "mintAddress": "Epm4KfTj4DMrvqn6Bwg2Tr2N8vhQuNbuK8bESFp4k33K"
+  },
+  "YFI-USDT-V4": {
+    "symbol": "YFI-USDT",
+    "name": "YFI-USDT LP",
+    "mintAddress": "FA1i7fej1pAbQbnY8NbyYUsTrWcasTyipKreDgy1Mgku"
+  },
+  "SRM-USDT-V4": {
+    "symbol": "SRM-USDT",
+    "name": "SRM-USDT LP",
+    "mintAddress": "HYSAu42BFejBS77jZAZdNAWa3iVcbSRJSzp3wtqCbWwv"
+  },
+  "FTT-USDT-V4": {
+    "symbol": "FTT-USDT",
+    "name": "FTT-USDT LP",
+    "mintAddress": "2cTCiUnect5Lap2sk19xLby7aajNDYseFhC9Pigou11z"
+  },
+  "BTC-USDT-V4": {
+    "symbol": "BTC-USDT",
+    "name": "BTC-USDT LP",
+    "mintAddress": "DgGuvR9GSHimopo3Gc7gfkbKamLKrdyzWkq5yqA6LqYS"
+  },
+  "SUSHI-USDT-V4": {
+    "symbol": "SUSHI-USDT",
+    "name": "SUSHI-USDT LP",
+    "mintAddress": "Ba26poEYDy6P2o95AJUsewXgZ8DM9BCsmnU9hmC9i4Ki"
+  },
+  "TOMO-USDT-V4": {
+    "symbol": "TOMO-USDT",
+    "name": "TOMO-USDT LP",
+    "mintAddress": "D3iGro1vn6PWJXo9QAPj3dfta6dKkHHnmiiym2EfsAmi"
+  },
+  "LINK-USDT-V4": {
+    "symbol": "LINK-USDT",
+    "name": "LINK-USDT LP",
+    "mintAddress": "Dr12Sgt9gkY8WU5tRkgZf1TkVWJbvjYuPAhR3aDCwiiX"
+  },
+  "ETH-USDT-V4": {
+    "symbol": "ETH-USDT",
+    "name": "ETH-USDT LP",
+    "mintAddress": "nPrB78ETY8661fUgohpuVusNCZnedYCgghzRJzxWnVb"
+  },
+  "YFI-SRM-V4": {
+    "symbol": "YFI-SRM",
+    "name": "YFI-SRM LP",
+    "mintAddress": "EGJht91R7dKpCj8wzALkjmNdUUUcQgodqWCYweyKcRcV"
+  },
+  "FTT-SRM-V4": {
+    "symbol": "FTT-SRM",
+    "name": "FTT-SRM LP",
+    "mintAddress": "AsDuPg9MgPtt3jfoyctUCUgsvwqAN6RZPftqoeiPDefM"
+  },
+  "BTC-SRM-V4": {
+    "symbol": "BTC-SRM",
+    "name": "BTC-SRM LP",
+    "mintAddress": "AGHQxXb3GSzeiLTcLtXMS2D5GGDZxsB2fZYZxSB5weqB"
+  },
+  "SUSHI-SRM-V4": {
+    "symbol": "SUSHI-SRM",
+    "name": "SUSHI-SRM LP",
+    "mintAddress": "3HYhUnUdV67j1vn8fu7ExuVGy5dJozHEyWvqEstDbWwE"
+  },
+  "TOMO-SRM-V4": {
+    "symbol": "TOMO-SRM",
+    "name": "TOMO-SRM LP",
+    "mintAddress": "GgH9RnKrQpaMQeqmdbMvs5oo1A24hERQ9wuY2pSkeG7x"
+  },
+  "LINK-SRM-V4": {
+    "symbol": "LINK-SRM",
+    "name": "LINK-SRM LP",
+    "mintAddress": "GXN6yJv12o18skTmJXaeFXZVY1iqR18CHsmCT8VVCmDD"
+  },
+  "ETH-SRM-V4": {
+    "symbol": "ETH-SRM",
+    "name": "ETH-SRM LP",
+    "mintAddress": "9VoY3VERETuc2FoadMSYYizF26mJinY514ZpEzkHMtwG"
+  },
+  "SRM-SOL-V4": {
+    "symbol": "SRM-SOL",
+    "name": "SRM-SOL LP",
+    "mintAddress": "AKJHspCwDhABucCxNLXUSfEzb7Ny62RqFtC9uNjJi4fq"
+  },
+  "STEP-USDC-V4": {
+    "symbol": "STEP-USDC",
+    "name": "STEP-USDC LP",
+    "mintAddress": "3k8BDobgihmk72jVmXYLE168bxxQUhqqyESW4dQVktqC"
+  }
+}

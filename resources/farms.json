@@ -1,0 +1,188 @@
+[
+  {
+    "name": "RAY-USDT",
+    "reward": "RAY",
+    "isStake": false,
+
+    "fusion": false,
+    "legacy": false,
+    "dual": false,
+    "version": 3,
+    "programId": "STAKE_PROGRAM_ID",
+
+    "poolId": "AvbVWpBi2e4C9HPmZgShGdPoNydG4Yw8GJvG9HUcLgce",
+    "poolAuthority": "8JYVFy3pYsPSpPRsqf43KSJFnJzn83nnRLQgG88XKB8q",
+    "poolLpTokenAccount": "4u4AnMBHXehdpP5tbD6qzB5Q4iZmvKKR5aUr2gavG7aw",
+    "poolRewardTokenAccount": "HCHNuGzkqSnw9TbwpPv1gTnoqnqYepcojHw9DAToBrUj"
+  },
+  {
+    "name": "RAY-USDC",
+    "reward": "RAY",
+    "isStake": false,
+
+    "fusion": false,
+    "legacy": false,
+    "dual": false,
+    "version": 3,
+    "programId": "STAKE_PROGRAM_ID",
+
+    "poolId": "8nEWqxeDNZ2yo1izbPzY4nwR55isBZRaQk7CM8ntwUwR",
+    "poolAuthority": "6vQGZLsHgpJdqh1ER7q2q6mjZ43QwzhtTofTzb2sUhNh",
+    "poolLpTokenAccount": "77ujS15hjUfFZkM8QAw4HMLvMGZg95Gcm6ixjA1bnk3M",
+    "poolRewardTokenAccount": "3ejmkn5HpXR9KdVWkai1Ngo87sQSUyKXrx8wSakipkno"
+  },
+  {
+    "name": "RAY-SRM",
+    "reward": "RAY",
+    "isStake": false,
+
+    "fusion": false,
+    "legacy": false,
+    "dual": false,
+    "version": 3,
+    "programId": "STAKE_PROGRAM_ID",
+
+    "poolId": "HwEgvS79S53yzYUTRHShU6EuNmhR3WTX5tTZPUzBmwky",
+    "poolAuthority": "9B3XWm89zX7NwaBB8VmT5mrWvxVpd9eyfQMeqkuLkcCF",
+    "poolLpTokenAccount": "F4zXXzqkyT1GP5CVdEgC7qTcDfR8ox5Akm6RCbBdBsRp",
+    "poolRewardTokenAccount": "FW7omPaCCvgBgUFKwvwU2jf1w1wJGjDrJqurr3SeXn14"
+  },
+  {
+    "name": "RAY-SOL",
+    "reward": "RAY",
+    "isStake": false,
+
+    "fusion": false,
+    "legacy": false,
+    "dual": false,
+    "version": 3,
+    "programId": "STAKE_PROGRAM_ID",
+
+    "poolId": "ECqG3sxwJiq9TTYsRBd7fPGsBKYF4fyogo6Df7c13qdJ",
+    "poolAuthority": "4Wf4om12g9xzEeeD139ffCuXn4W2huMcXziiSAzf7Nig",
+    "poolLpTokenAccount": "9kWnkQtMAW2bzKeLQsTdan1rEoypDHaAVnZRcoBPDBfQ",
+    "poolRewardTokenAccount": "8z4kQbgQFe4zXE4NSozWJTJV14gD4evNq4CKn5ryB6S3"
+  },
+  {
+    "name": "RAY-ETH",
+    "reward": "RAY",
+    "isStake": false,
+
+    "fusion": false,
+    "legacy": false,
+    "dual": false,
+    "version": 3,
+    "programId": "STAKE_PROGRAM_ID",
+
+    "poolId": "CYKDTwojSLVFEShB3tcTTfMjtBxUNtYfCTM4PiMFGkio",
+    "poolAuthority": "Azmucec2jdgWagFkbnqmwYcsrtKPf1v1kcM95v6s1zxu",
+    "poolLpTokenAccount": "EncPBQhpc5KLmcgRD2PutQz7wBBNQkVN2s8jjFWEw9no",
+    "poolRewardTokenAccount": "8q8BHw7fP7mitLrb2jzw78qcSEgCvM7GTB5PzbSQobUt"
+  },
+  {
+    "name": "FIDA-RAY",
+    "reward": "RAY",
+    "rewardB": "FIDA",
+    "isStake": false,
+
+    "fusion": true,
+    "legacy": false,
+    "dual": true,
+    "version": 4,
+    "programId": "STAKE_PROGRAM_ID_V4",
+
+    "poolId": "8rAdapvcC5vYNLXzChMgt56s6HCQGE6Lbo469g3WRTUh",
+    "poolAuthority": "EcCKf3mgPtL6dNNAVG4gQQtLkAoTAUdf5vzFukkrviWq",
+    "poolLpTokenAccount": "H6kzwNNg9zbgC1YBjvCN4BdebtA4NusvgUhUSDZoz8rP",
+    "poolRewardTokenAccount": "7vnPTB2HAXFUAV5iiVZTNHgAnVYjgXcdumbbqfeK6ugp",
+    "poolRewardTokenAccountB": "EGHdQm9KGLz6nw7W4rK13DyAMMJcGP9RpzCJaXiq75kQ"
+  },
+  {
+    "name": "OXY-RAY",
+    "reward": "RAY",
+    "rewardB": "OXY",
+    "isStake": false,
+
+    "fusion": true,
+    "legacy": false,
+    "dual": true,
+    "version": 4,
+    "programId": "STAKE_PROGRAM_ID_V4",
+
+    "poolId": "7Hug9fKfTrasG3hHonXTfSnvv37mDeyoBHbVwyDjw693",
+    "poolAuthority": "CcD7KXVhjoeFpbkXeBgPpZChafEfTZ4zJL47LqmKdqwz",
+    "poolLpTokenAccount": "GtXoFnVRATaasBP6sroNaC54uLQfVAwGXsfKzgFqNiUc",
+    "poolRewardTokenAccount": "GKC7BcGs1515CQx6hiK562u29dFQxBw8HWwJUxqi7xf1",
+    "poolRewardTokenAccountB": "DXDjRiC7EUUh9cj93tgBtX2jRkmnwtCMEAQD9GrYK2f6"
+  },
+  {
+    "name": "MAPS-RAY",
+    "reward": "RAY",
+    "rewardB": "MAPS",
+    "isStake": false,
+
+    "fusion": true,
+    "legacy": false,
+    "dual": true,
+    "version": 4,
+    "programId": "STAKE_PROGRAM_ID_V4",
+
+    "poolId": "Chb6atEWGmH2NitCqrCEMHB8uKWYQiiVaBnmJQDudm87",
+    "poolAuthority": "BcmgQZXCDPCduv3reT8LDQNqvGeGMZtFhBxyLYdrnCjE",
+    "poolLpTokenAccount": "5uaBAwu1Sff58KNKGTwfacsjsrMU3wg6jtGtMWwiZd5B",
+    "poolRewardTokenAccount": "4LVikvk3gZEHaTUNh7L8bsx5By6NNnkqpKfcdJTWTD7Z",
+    "poolRewardTokenAccountB": "3UWGpEe2NLD9oWPW1zdXGZRCvJxkNSC2puUWooNEugdS"
+  },
+  {
+    "name": "KIN-RAY",
+    "reward": "RAY",
+    "rewardB": "KIN",
+    "isStake": false,
+
+    "fusion": true,
+    "legacy": false,
+    "dual": true,
+    "version": 5,
+    "programId": "STAKE_PROGRAM_ID_V5",
+
+    "poolId": "FgApVk6mASrkuWNxmsFvsaAYkFKqdiwMTvYZK36A2DaC",
+    "poolAuthority": "7kEx8qnkZPkRXV6f4ztf27zYjCACBHY3PUMfuiYJsoML",
+    "poolLpTokenAccount": "7fgDjhZn9GqRZbbCregr9tpkbWSKjibdCsJNBYbLhLir",
+    "poolRewardTokenAccount": "5XZjRyEo8Wr2CtSE5bpoKioThT9czK1dUebbK87Lqkaa",
+    "poolRewardTokenAccountB": "8jGJ3ST1j9eemfC6N2qQevtUdwxT7TpXW1NmvWyvLLVs"
+  },
+  {
+    "name": "COPE-USDC",
+    "reward": "RAY",
+    "rewardB": "COPE",
+    "isStake": false,
+    "fusion": true,
+    "legacy": false,
+    "dual": false,
+    "version": 5,
+    "programId": "STAKE_PROGRAM_ID_V5",
+    "poolId": "XnRBbNMf6YcWvC1u2vBXXuMcagmRBRLu1y84mpqnKwW",
+    "poolAuthority": "AnYvA5H7oBeA1otnWHSu8ud3waFsEmfUbdAoM1VzdVvt",
+    "poolLpTokenAccount": "6tXWzm8nLVtNtvqDH8bZNfUwpSjEcKZoJFpcV4hC5rLD",
+    "poolRewardTokenAccount": "8GoDpozsDk3U3J36vvPiq3YpnA6MeJb1QPVJFiupe2wR",
+    "poolRewardTokenAccountB": "7niS4ngxgZ3oynHwH82PnwJXicTnY3fo9Vubi1PnjzJq"
+  },
+  {
+    "name": "STEP-USDC",
+    "reward": "RAY",
+    "rewardB": "STEP",
+    "isStake": false,
+
+    "fusion": true,
+    "legacy": false,
+    "dual": false,
+    "version": 5,
+    "programId": "STAKE_PROGRAM_ID_V5",
+
+    "poolId": "8xhjCzfzVcP79jE7jXR2xtNaSL6aJYoDRLVT9FMjpRTC",
+    "poolAuthority": "6wRMPrHKFzj3qB4j5yj4y9mDF89fZ6w7gD1cEzCJwT9B",
+    "poolLpTokenAccount": "CP3wdgdSygYGLJMjKfbJMiANnYuAxXHPiLTtB124tzVX",
+    "poolRewardTokenAccount": "3zSiR4XrrRPhsom2hh9iigYZZ7uCpMucfJnZRgREgH8j",
+    "poolRewardTokenAccountB": "4n3vRUk3wdtbGWgMFSaxUcnGLKwa2wiWVhqw7kv9JDVS"
+  }
+]
