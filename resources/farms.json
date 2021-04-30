@@ -184,5 +184,23 @@
     "poolLpTokenAccount": "CP3wdgdSygYGLJMjKfbJMiANnYuAxXHPiLTtB124tzVX",
     "poolRewardTokenAccount": "3zSiR4XrrRPhsom2hh9iigYZZ7uCpMucfJnZRgREgH8j",
     "poolRewardTokenAccountB": "4n3vRUk3wdtbGWgMFSaxUcnGLKwa2wiWVhqw7kv9JDVS"
+  },
+  {
+    "name": "MEDIA-USDC",
+    "reward": "RAY",
+    "rewardB": "MEDIA",
+    "isStake": false,
+
+    "fusion": true,
+    "legacy": false,
+    "dual": false,
+    "version": 5,
+    "programId": "STAKE_PROGRAM_ID_V5",
+
+    "poolId": "Ef1gD9JMzWF6PNw2uc4744zouh57GyWAeVTjHHbQ2nsu",
+    "poolAuthority": "3dhU2g3MSHK3LwjuE1VsEJCsNeWKyBJUMHt4EUXepTjs",
+    "poolLpTokenAccount": "DGjRtqsjeubLCLPD3yH8fj1d7TnrD3jKBpwa1UbVk7E6",
+    "poolRewardTokenAccount": "Uen8f9Rn42i8sDTK5vEttrnX9AUwXV3yf6DFU63mKDb",
+    "poolRewardTokenAccountB": "Ek6n7Myojb6pSpQuqk5AyS7KXQdXkJyZT7ki9baYCxds"
   }
 ]

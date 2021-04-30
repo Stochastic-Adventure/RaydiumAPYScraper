@@ -184,5 +184,10 @@
     "symbol": "STEP-USDC",
     "name": "STEP-USDC LP",
     "mintAddress": "3k8BDobgihmk72jVmXYLE168bxxQUhqqyESW4dQVktqC"
+  },
+  "MEDIA-USDC-V4": {
+    "symbol": "MEDIA-USDC",
+    "name": "MEDIA-USDC LP",
+    "mintAddress": "A5zanvgtioZGiJMdEyaKN4XQmJsp1p7uVxaq2696REvQ"
   }
 }
