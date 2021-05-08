@@ -333,6 +333,8 @@ class RaydiumPoolInfo:
             APR_B = per_block_rewardB * 2 * 86400 * 365 * rewardB_price / staked_liquidity / (10 ** rewardB_decimal)
 
             farm_lp_info.update({
+                rewardA_coin + "_reward_per_block_ann": per_block_rewardA * 2 * 86400 * 365 / (10 ** rewardA_decimal),
+                rewardB_coin + "_reward_per_block_ann": per_block_rewardB * 2 * 86400 * 365 / (10 ** rewardB_decimal),
                 rewardA_coin + "_APR": APR_A,
                 rewardB_coin + "_APR": APR_B
             })
@@ -359,6 +361,7 @@ class RaydiumPoolInfo:
             APR = per_block_reward * 2 * 86400 * 365 * reward_price / staked_liquidity / (10 ** reward_decimal)
 
             farm_lp_info.update({
+                reward_coin + "_reward_per_block_ann": per_block_reward * 2 * 86400 * 365 / (10 ** reward_decimal),
                 reward_coin + "_APR": APR
             })
 
@@ -379,6 +382,7 @@ class RaydiumPoolInfo:
             APR = per_block_reward * 2 * 86400 * 365 * reward_price / staked_liquidity / (10 ** reward_decimal)
 
             farm_lp_info.update({
+                "RAY_reward_per_block_ann": per_block_reward * 2 * 86400 * 365 / (10 ** reward_decimal),
                 "RAY_APR": APR
             })
         return {farm: farm_lp_info}
