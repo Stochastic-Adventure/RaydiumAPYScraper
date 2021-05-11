@@ -21,11 +21,11 @@ SERUM_ENDPOINT = "https://solana-api.projectserum.com"
 RAYDIUM_PRICE_ENDPOINT = "https://api.raydium.io/coin/price"
 RAYDIUM_FEE_ENDPOINT = "https://api.raydium.io/pairs"
 
-TOKEN_INFO_FILE = "resources/tokens.json"
-LP_TOKEN_INFO_FILE = "resources/LPtokens.json"
-LP_ADDRESS_INFO_FILE = "resources/LPtokens_detail_addresses.json"
-FARMS_INFO_FILE = "resources/farms.json"
-STAKE_INFO_FILE = "resources/stake.json"
+TOKEN_INFO_FILE = "./resources/tokens.json"
+LP_TOKEN_INFO_FILE = "./resources/LPtokens.json"
+LP_ADDRESS_INFO_FILE = "./resources/LPtokens_detail_addresses.json"
+FARMS_INFO_FILE = "./resources/farms.json"
+STAKE_INFO_FILE = "./resources/stake.json"
 
 
 class SolanaAPICall:
