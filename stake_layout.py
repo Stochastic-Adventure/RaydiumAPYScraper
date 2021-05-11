@@ -69,3 +69,19 @@ OPEN_ORDERS_LAYOUT = Struct(
     Padding(7),
 )
 
+USER_STAKE_INFO_ACCOUNT_LAYOUT = Struct(
+  "state" / Int64ul,
+  "poolId" / Bytes(32),
+  "stakerOwner" / Bytes(32),
+  "depositBalance" / Int64ul,
+  "rewardDebt" / Int64ul
+)
+
+USER_STAKE_INFO_ACCOUNT_LAYOUT_V4 = Struct(
+  "state" / Int64ul,
+  "poolId" / Bytes(32),
+  "stakerOwner" / Bytes(32),
+  "depositBalance" / Int64ul,
+  "rewardDebt" / Int64ul,
+  "rewardDebtB" / Int64ul
+)
