@@ -226,5 +226,11 @@
     "name": "MEDIA-USDC LP",
     "mintAddress": "A5zanvgtioZGiJMdEyaKN4XQmJsp1p7uVxaq2696REvQ",
     "decimals": 6
+  },
+  "ROPE-USDC-V4": {
+    "symbol": "ROPE-USDC",
+    "name": "ROPE-USDC LP",
+    "mintAddress": "Cq4HyW5xia37tKejPF2XfZeXQoPYW6KfbPvxvw5eRoUE",
+    "decimals": 9
   }
 }
