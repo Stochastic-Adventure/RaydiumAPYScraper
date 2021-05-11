@@ -3,11 +3,13 @@ Author: Yefeng Wang
 Data scraping module to retrieve real-time Raydium liquidity pool information.
 """
 
-from stake_layout import STAKE_INFO_LAYOUT_V4, STAKE_INFO_LAYOUT, OPEN_ORDERS_LAYOUT
+from stake_layout import STAKE_INFO_LAYOUT_V4, STAKE_INFO_LAYOUT, OPEN_ORDERS_LAYOUT, USER_STAKE_INFO_ACCOUNT_LAYOUT
+from resources.ids import STAKE_PROGRAM_ID, STAKE_PROGRAM_ID_V4, STAKE_PROGRAM_ID_V5
 
 import asyncio
 from ast import literal_eval
 
+import base58
 import base64
 import json
 import itertools
@@ -23,6 +25,7 @@ TOKEN_INFO_FILE = "resources/tokens.json"
 LP_TOKEN_INFO_FILE = "resources/LPtokens.json"
 LP_ADDRESS_INFO_FILE = "resources/LPtokens_detail_addresses.json"
 FARMS_INFO_FILE = "resources/farms.json"
+STAKE_INFO_FILE = "resources/stake.json"
 
 
 class SolanaAPICall:
@@ -94,6 +97,17 @@ class SolanaAPICall:
         result = await self._make_request(payload, header)
         return result
 
+    async def getProgramAccounts(self, publicKey: str, commitment: str = 'max', encoding: str = 'base64'):
+        self._set_commitment(commitment)
+        self._set_encoding(encoding)
+        payload, header = self._add_payload("getProgramAccounts",
+                                            publicKey,
+                                            {
+                                                "commitment": self._commitment,
+                                                "encoding": self._encoding
+                                            })
+        result = await self._make_request(payload, header)
+        return result
 
 class RaydiumAPICall:
     def __init__(self, price_endpoint, fee_endpoint, session):
@@ -145,7 +159,7 @@ class RaydiumPoolInfo:
         self.SERUM = SolanaAPICall(SERUM_ENDPOINT, session)
         self.RAYDIUM = RaydiumAPICall(RAYDIUM_PRICE_ENDPOINT, RAYDIUM_FEE_ENDPOINT, session)
 
-    def _base64_decode(self, data, layout):
+    def base64_decode(self, data, layout):
         data_decode = base64.b64decode(data)
         structured_data = layout.parse(data_decode)
         return structured_data
@@ -205,10 +219,7 @@ class RaydiumPoolInfo:
             mint_address = self.LP_token_info[pool]['mintAddress']
             coin_decimals = self.get_token_decimal(coin)
             pc_decimals = self.get_token_decimal(pc)
-            if pool == "KIN-RAY-V4":
-                lp_decimals = self.LP_token_info[pool]['decimals']
-            else:
-                lp_decimals = coin_decimals
+            lp_decimals = self.LP_token_info[pool]['decimals']
 
             coin_in_pool_address = self.LP_address_info[symbol]['poolCoinTokenAccount']
             pc_in_pool_address = self.LP_address_info[symbol]['poolPcTokenAccount']
@@ -262,7 +273,7 @@ class RaydiumPoolInfo:
         coin_amount = coin_amount_data['result']['value']['uiAmount']
         pc_amount = pc_amount_data['result']['value']['uiAmount']
         lp_supply = lp_supply_data['result']['value']['uiAmount']
-        open_order_data_decode = self._base64_decode(open_order_data['result']['value']['data'][0], OPEN_ORDERS_LAYOUT)
+        open_order_data_decode = self.base64_decode(open_order_data['result']['value']['data'][0], OPEN_ORDERS_LAYOUT)
         open_order_coin = open_order_data_decode.base_token_total / (10 ** self.LP_addresses[lp]['coin_decimals'])
         open_order_pc = open_order_data_decode.quote_token_total / (10 ** self.LP_addresses[lp]['pc_decimals'])
         coin_price = coin_price[coin]
@@ -305,7 +316,7 @@ class RaydiumPoolInfo:
         stake_info = await stake_info_task
         if is_dual:
             # Dual reward
-            stake_info_data = self._base64_decode(stake_info['result']['value']['data'][0], STAKE_INFO_LAYOUT_V4)
+            stake_info_data = self.base64_decode(stake_info['result']['value']['data'][0], STAKE_INFO_LAYOUT_V4)
             per_block_rewardA = stake_info_data.perBlock
             per_block_rewardB = stake_info_data.perBlockB
 
@@ -341,7 +352,7 @@ class RaydiumPoolInfo:
 
         elif is_fusion:
             # X-USDC fusion pool
-            stake_info_data = self._base64_decode(stake_info['result']['value']['data'][0], STAKE_INFO_LAYOUT_V4)
+            stake_info_data = self.base64_decode(stake_info['result']['value']['data'][0], STAKE_INFO_LAYOUT_V4)
             per_block_reward = stake_info_data.perBlockB
             reward_coin = self.farms_info[farm]['rewardB']
 
@@ -367,7 +378,7 @@ class RaydiumPoolInfo:
 
         else:
             # RAY yield farming pool
-            stake_info_data = self._base64_decode(stake_info['result']['value']['data'][0], STAKE_INFO_LAYOUT)
+            stake_info_data = self.base64_decode(stake_info['result']['value']['data'][0], STAKE_INFO_LAYOUT)
 
             per_block_reward = stake_info_data.rewardPerBlock
             reward_price = farm_lp_info['coin_price']
@@ -386,3 +397,58 @@ class RaydiumPoolInfo:
                 "RAY_APR": APR
             })
         return {farm: farm_lp_info}
+
+    async def get_RAY_staking_dist(self):
+        """
+
+        :param program_id:
+        :return:
+        """
+        stake_program_id = STAKE_PROGRAM_ID
+        stake_distro_task = asyncio.create_task(self.SOLANA.getProgramAccounts(stake_program_id))
+        stake_distro_info = await stake_distro_task
+
+        stake_result = stake_distro_info['result']
+        stake_distribution = {
+            "publicKey": [],
+            "Staked RAY amount": []
+        }
+        for account_info in stake_result:
+            stake_owner_data = self.base64_decode(account_info['account']['data'][0], USER_STAKE_INFO_ACCOUNT_LAYOUT)
+            pool_id = base58.b58encode(stake_owner_data.poolId).decode('utf-8')
+            owner_account = base58.b58encode(stake_owner_data.stakerOwner).decode('utf-8')
+            deposit_balance = stake_owner_data.depositBalance
+
+            if pool_id == "4EwbZo8BZXP5313z5A2H11MRBP15M5n6YxfmkjXESKAW" and deposit_balance > 0:
+                # There's only one single-sided staking pool so it's OK to hard-code it
+                stake_distribution['publicKey'].append(owner_account)
+                stake_distribution['Staked RAY amount'].append(deposit_balance / pow(10, 6))
+
+        return stake_distribution
+
+    async def get_fusion_LP_dist(self, farms: str, program_id: str, LAYOUT):
+        """
+
+        :return:
+        """
+        stake_program_id = program_id
+        stake_distro_task = asyncio.create_task(self.SOLANA.getProgramAccounts(stake_program_id))
+        stake_distro_info = await stake_distro_task
+
+        stake_result = stake_distro_info['result']
+        stake_distribution = {
+            "publicKey": [],
+            "Staked {} LP amount".format(farms): []
+        }
+        for account_info in stake_result:
+            stake_owner_data = self.base64_decode(account_info['account']['data'][0], LAYOUT)
+            pool_id = base58.b58encode(stake_owner_data.poolId).decode('utf-8')
+            owner_account = base58.b58encode(stake_owner_data.stakerOwner).decode('utf-8')
+            deposit_balance = stake_owner_data.depositBalance
+
+            if pool_id == self.farms_info[farms]['poolId'] and deposit_balance > 0:
+                # There's only one single-sided staking pool so it's OK to hard-code it
+                stake_distribution["publicKey"].append(owner_account)
+                stake_distribution["Staked {} LP amount".format(farms)].append(deposit_balance / pow(10, self.LP_addresses[farms]['lp_decimals']))
+
+        return stake_distribution
