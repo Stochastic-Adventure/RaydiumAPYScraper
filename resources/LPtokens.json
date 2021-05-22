@@ -107,9 +107,9 @@
     "mintAddress": "13PoKid6cZop4sj2GfoBeujnGfthUbTERdE5tpLCDLEY",
     "decimals": 6
   },
-  "COPE-USDC-V4": {
-    "symbol": "COPE-USDC",
-    "name": "COPE-USDC LP",
+  "xCOPE-USDC-V4": {
+    "symbol": "xCOPE-USDC",
+    "name": "xCOPE-USDC LP",
     "mintAddress": "2Vyyeuyd15Gp8aH6uKE72c4hxc8TVSLibxDP9vzspQWG",
     "decimals": 0
   },
@@ -232,5 +232,17 @@
     "name": "ROPE-USDC LP",
     "mintAddress": "Cq4HyW5xia37tKejPF2XfZeXQoPYW6KfbPvxvw5eRoUE",
     "decimals": 9
+  },
+  "MER-USDC-V4": {
+    "symbol": "MER-USDC",
+    "name": "MER-USDC LP",
+    "mintAddress": "3H9NxvaZoxMZZDZcbBDdWMKbrfNj7PCF5sbRwDr7SdDW",
+    "decimals": 6
+  },
+  "COPE-USDC-V4": {
+    "symbol": "COPE-USDC",
+    "name": "COPE-USDC LP",
+    "mintAddress": "Cz1kUvHw98imKkrqqu95GQB9h1frY8RikxPojMwWKGXf",
+    "decimals": 6
   }
 }

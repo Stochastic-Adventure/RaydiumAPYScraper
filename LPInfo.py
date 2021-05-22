@@ -5,9 +5,11 @@ Data scraping module to retrieve real-time Raydium liquidity pool information.
 
 from stake_layout import STAKE_INFO_LAYOUT_V4, STAKE_INFO_LAYOUT, OPEN_ORDERS_LAYOUT, USER_STAKE_INFO_ACCOUNT_LAYOUT
 from resources.ids import STAKE_PROGRAM_ID, STAKE_PROGRAM_ID_V4, STAKE_PROGRAM_ID_V5
+from user_types import MemcmpOpts
 
 import asyncio
 from ast import literal_eval
+from typing import Optional, List
 
 import base58
 import base64
@@ -97,15 +99,22 @@ class SolanaAPICall:
         result = await self._make_request(payload, header)
         return result
 
-    async def getProgramAccounts(self, publicKey: str, commitment: str = 'max', encoding: str = 'base64'):
+    async def getProgramAccounts(self, publicKey: str, commitment: str = 'max', encoding: str = 'base64',
+                                 data_size: Optional[int] = None, memcmp_opts: Optional[List[MemcmpOpts]] = None):
         self._set_commitment(commitment)
         self._set_encoding(encoding)
+        filters = {"filters": []}
+        if memcmp_opts:
+            for opt in memcmp_opts:
+                filters['filters'].append({"memcmp": dict(opt._asdict())})
+        if data_size:
+            filters['filters'].append({"dataSize": data_size})
+        filters['encoding'] = self._encoding
+        filters['commitment'] = self._commitment
+        filters = dict(sorted(filters.items())) # make sure the order is correctly sorted aphabetically
         payload, header = self._add_payload("getProgramAccounts",
                                             publicKey,
-                                            {
-                                                "commitment": self._commitment,
-                                                "encoding": self._encoding
-                                            })
+                                            filters)
         result = await self._make_request(payload, header)
         return result
 
@@ -116,12 +125,12 @@ class RaydiumAPICall:
         self._session = session
         self.token_name_dict = self.generate_token_name_dict()
 
-    async def get_price(self, token: str):
+    async def get_price(self):
         """
 
         :return:
         """
-        async with self._session.get(self._price_endpoint, params={"coins": token}) as resp:
+        async with self._session.get(self._price_endpoint) as resp:
             resp.raise_for_status()
             result = await resp.text()
 
@@ -260,15 +269,14 @@ class RaydiumPoolInfo:
         pc_amount_data_task = asyncio.create_task(self.SOLANA.getTokenAccountBalance(pc_account))
         lp_supply_task = asyncio.create_task(self.SOLANA.getTokenSupply(lp_account))
         open_order_task = asyncio.create_task(self.SOLANA.getAccountInfo(amm_address))
-        coin_price_task = asyncio.create_task(self.RAYDIUM.get_price(coin))
-        pc_price_task = asyncio.create_task(self.RAYDIUM.get_price(pc))
+        price_task = asyncio.create_task(self.RAYDIUM.get_price())
+
 
         coin_amount_data = await coin_amount_data_task
         pc_amount_data = await pc_amount_data_task
         lp_supply_data = await lp_supply_task
         open_order_data = await open_order_task
-        coin_price = await coin_price_task
-        pc_price = await pc_price_task
+        price = await price_task
 
         coin_amount = coin_amount_data['result']['value']['uiAmount']
         pc_amount = pc_amount_data['result']['value']['uiAmount']
@@ -276,8 +284,8 @@ class RaydiumPoolInfo:
         open_order_data_decode = self.base64_decode(open_order_data['result']['value']['data'][0], OPEN_ORDERS_LAYOUT)
         open_order_coin = open_order_data_decode.base_token_total / (10 ** self.LP_addresses[lp]['coin_decimals'])
         open_order_pc = open_order_data_decode.quote_token_total / (10 ** self.LP_addresses[lp]['pc_decimals'])
-        coin_price = coin_price[coin]
-        pc_price = pc_price[pc]
+        coin_price = price[coin]
+        pc_price = price[pc]
 
         total_coin = coin_amount + open_order_coin
         total_pc = pc_amount + open_order_pc
@@ -452,3 +460,34 @@ class RaydiumPoolInfo:
                 stake_distribution["Staked {} LP amount".format(farms)].append(deposit_balance / pow(10, self.LP_addresses[farms]['lp_decimals']))
 
         return stake_distribution
+
+    async def get_token_dist(self, mint_address: str):
+        """
+
+        :param mint_address:
+        :return:
+        """
+
+        memcmp = MemcmpOpts(0, mint_address)
+        token_distro_task = asyncio.create_task(self.SOLANA.getProgramAccounts("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                                                                               encoding='jsonParsed',
+                                                                               data_size=165,
+                                                                               memcmp_opts=[memcmp]))
+        token_distro_info = await token_distro_task
+
+        token_distro = {
+            "publicKey": [],
+            "OwnedAmount": []
+        }
+        for holder in token_distro_info['result']:
+            holder_info = holder['account']['data']['parsed']['info']
+            holder_account = holder_info['owner']
+            holder_amount = holder_info['tokenAmount']['uiAmount']
+            if holder_amount > 0:
+                token_distro['publicKey'].append(holder_account)
+                token_distro['OwnedAmount'].append(holder_amount)
+
+        return token_distro
+
+
+
